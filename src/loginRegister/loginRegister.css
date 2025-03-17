@@ -32,22 +32,21 @@ img.icon {
     height: 0.4rem;
     border-radius: 2rem;
 }
-/* .text-focus {
-    background-color: rgb(230, 142, 12);
-    outline: none;
-} */
-
-/* .fi fi-rr-user {
-    size: 200px;
-} */
-/* img.coffee-background {
-    min-height: 100vh;
-    background-size: cover;
+.input {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-} */
-/* .input {
-    size: 5px;
-} */
+    margin: auto;
+    width: 15rem;
+    height: 5rem;
+    background: rgb(240, 198, 139);
+    border-radius: 10px;
+}
+.input input {
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 19px;
+}
