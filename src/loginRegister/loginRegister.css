@@ -32,14 +32,20 @@ img.icon {
     height: 0.4rem;
     border-radius: 2rem;
 }
+.inputs {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
 .input {
     display: flex;
     align-items: center;
     margin: auto;
     width: 15rem;
-    height: 5rem;
+    height: 4rem;
     background: rgb(240, 198, 139);
-    border-radius: 10px;
+    border-radius: 0.5rem;
 }
 .input input {
     height: 50px;

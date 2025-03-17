@@ -19,29 +19,31 @@ const LoginRegister = () => {
                         ></img>
                     </div> */}
                 </div>
-                <div className="input">
-                    <img
-                        className="icon"
-                        src={person_icon}
-                        alt="image of person icon"
-                    ></img>
-                    <input type="text" />
-                </div>
-                <div className="input">
-                    <img
-                        className="icon"
-                        src={mail_icon}
-                        alt="image of email icon"
-                    ></img>
-                    <input type="email" />
-                </div>
-                <div className="input">
-                    <img
-                        className="icon"
-                        src={password_icon}
-                        alt="image of lock icon"
-                    ></img>
-                    <input type="password" />
+                <div className="inputs">
+                    <div className="input">
+                        <img
+                            className="icon"
+                            src={person_icon}
+                            alt="image of person icon"
+                        ></img>
+                        <input type="text" placeholder="username" />
+                    </div>
+                    <div className="input">
+                        <img
+                            className="icon"
+                            src={mail_icon}
+                            alt="image of email icon"
+                        ></img>
+                        <input type="email" placeholder="email" />
+                    </div>
+                    <div className="input">
+                        <img
+                            className="icon"
+                            src={password_icon}
+                            alt="image of lock icon"
+                        ></img>
+                        <input type="password" placeholder="password" />
+                    </div>
                 </div>
                 <div className="Submit_container">
                     <div className="submit">Register</div>
