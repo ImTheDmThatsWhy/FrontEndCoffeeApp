@@ -1,29 +1,51 @@
 import React from "react";
 import "./loginRegister.css";
+// import coffee_bean from "../assets/coffeebean.png";
+import mail_icon from "../assets/mail-02.jpg";
+import password_icon from "../assets/password.jpg";
+import person_icon from "../assets/person.jpg";
 const LoginRegister = () => {
     //attribute for icons Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
     return (
         <main>
-            <div classname="container">
+            <div className="container">
                 <div className="header">
-                    <h1 className="LoginHeading">Login or Register</h1>
+                    <div className="login">Login or Register</div>
                     <div className="underline"></div>
+                    {/* <div className="coffee-background">
+                        <img
+                            src={coffee_bean}
+                            alt="image of coffebean background"
+                        ></img>
+                    </div> */}
                 </div>
                 <div className="input">
-                    <i class="fi fi-rr-user"></i>
+                    <img
+                        className="icon"
+                        src={person_icon}
+                        alt="image of person icon"
+                    ></img>
                     <input type="text" />
                 </div>
                 <div className="input">
-                    <i class="fi fi-rr-envelope"></i>
+                    <img
+                        className="icon"
+                        src={mail_icon}
+                        alt="image of email icon"
+                    ></img>
                     <input type="email" />
                 </div>
                 <div className="input">
-                    <i class="fi fi-rr-lock"></i>
+                    <img
+                        className="icon"
+                        src={password_icon}
+                        alt="image of lock icon"
+                    ></img>
                     <input type="password" />
                 </div>
                 <div className="Submit_container">
                     <div className="submit">Register</div>
-                    <div classname="submit">Login</div>
+                    <div className="submit">Login</div>
                 </div>
             </div>
         </main>
