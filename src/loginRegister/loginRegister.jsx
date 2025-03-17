@@ -1,30 +1,32 @@
 import React from "react";
 import "./loginRegister.css";
-import user_icon from "../assets/person.jpg";
-import email_icon from "../assets/mail-02.jpg";
-import password_icon from "../assets/password.jpg";
-
 const LoginRegister = () => {
+    //attribute for icons Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
     return (
-        <div classname="container">
-            <div className="header">
-                <h1 className="LoginHeading">Login or Register</h1>
-                <div className="underline"></div>
+        <main>
+            <div classname="container">
+                <div className="header">
+                    <h1 className="LoginHeading">Login or Register</h1>
+                    <div className="underline"></div>
+                </div>
+                <div className="input">
+                    <i class="fi fi-rr-user"></i>
+                    <input type="text" />
+                </div>
+                <div className="input">
+                    <i class="fi fi-rr-envelope"></i>
+                    <input type="email" />
+                </div>
+                <div className="input">
+                    <i class="fi fi-rr-lock"></i>
+                    <input type="password" />
+                </div>
+                <div className="Submit_container">
+                    <div className="submit">Register</div>
+                    <div classname="submit">Login</div>
+                </div>
             </div>
-            <div className="input">
-                <img src={user_icon} alt="icon of a head" />
-                <input type="text" />
-            </div>
-            <div className="input">
-                <img src={email_icon} alt="icon of an envelope" />
-                <input type="email" />
-            </div>
-            <div className="input">
-                <img src={password_icon} alt="icon of a lock" />
-                <input type="password" />
-            </div>
-            <div className="forgot_password">Forgotten your password?</div>
-        </div>
+        </main>
     );
 };
 export default LoginRegister;
