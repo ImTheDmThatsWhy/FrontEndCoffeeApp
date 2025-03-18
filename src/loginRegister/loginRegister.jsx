@@ -4,13 +4,15 @@ import "./loginRegister.css";
 import mail_icon from "../assets/mail-02.jpg";
 import password_icon from "../assets/password.jpg";
 import person_icon from "../assets/person.jpg";
+import coffee from "../assets/coffeebean.png";
 const LoginRegister = () => {
     //attribute for icons Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
     return (
         <main>
             <div className="container">
+                <img className="coffee" src={coffee} alt="coffee"></img>
                 <div className="header">
-                    <div className="login">Login or Register</div>
+                    <div className="register">Register</div>
                     <div className="underline"></div>
                     {/* <div className="coffee-background">
                         <img
@@ -46,8 +48,12 @@ const LoginRegister = () => {
                     </div>
                 </div>
                 <div className="Submit_container">
-                    <div className="submit">Register</div>
-                    <div className="submit">Login</div>
+                    <div className="submit">
+                        <button className="button">Register</button>
+                    </div>
+                    <div className="submit">
+                        <button className="button">Login</button>
+                    </div>
                 </div>
             </div>
         </main>
