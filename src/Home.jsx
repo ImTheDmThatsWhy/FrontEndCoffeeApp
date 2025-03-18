@@ -8,7 +8,7 @@ const App = () => {
   return (
   <div className="parent-container">
       <Nav />
-      <Contact />
+
       <Footer />
   </div>
   )

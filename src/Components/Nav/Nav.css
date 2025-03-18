@@ -1,0 +1,33 @@
+.navbar{
+    overflow: hidden;
+}
+
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+
+.navbar li {
+    padding: 3px 15px;
+
+}
+
+
+.navbar ul li:last-child {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.navbar li:hover {
+    background-color: red;
+    color: black;
+}
+
+.nav-right {
+    margin-left: auto;
+}
