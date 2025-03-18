@@ -1,0 +1,22 @@
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 90%;
+    padding: 20px;
+    text-align: center;
+}
+.input-box {
+    width: 100%;
+}
+.field {
+    width: 100%;
+}
