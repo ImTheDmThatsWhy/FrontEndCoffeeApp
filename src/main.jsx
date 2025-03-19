@@ -8,7 +8,7 @@ import Review from "./review/review.jsx";
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         {/* <App /> */}
-        {/* <LoginRegister /> */}
-        <Review />
+        <LoginRegister />
+        {/* <Review /> */}
     </StrictMode>
 );
