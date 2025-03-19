@@ -4,10 +4,15 @@ import "./index.css";
 import App from "./App.jsx";
 import { ApiContextProvider } from "./context/apiProvider.jsx";
 import Test from "./test.jsx";
+import { BrowserRouter } from "react-router";
+import LoginRegister from "./loginRegister/loginRegister.jsx";
 
-createRoot(document.getElementById("root")).render(
-    <StrictMode>
-        <App />
-        <Test />
-    </StrictMode>
+ReactDOM.render(
+    <BrowserRouter>
+        <React.StrictMode>
+            <App />
+            <Test />
+            <LoginRegister />
+        </React.StrictMode>
+    </BrowserRouter>
 );
