@@ -47,8 +47,8 @@ const CreateReview = async () => {
                         />
                     </div>
                 </div>
-                <div className="Submit_container">
-                    <div className="submit">
+                <div className="Submit_review_container">
+                    <div className="submitReview">
                         <button className="button" onClick={CreateReview}>
                             Register
                         </button>

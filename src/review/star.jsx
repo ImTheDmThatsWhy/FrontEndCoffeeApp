@@ -8,7 +8,7 @@ const colors = {
 };
 const stars = Array(5).fill(0);
 
-function Stars() {}
+// function Stars() {}
 const Rating = () => {
     return (
         <div className="reviewContainer">
