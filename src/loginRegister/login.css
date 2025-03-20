@@ -1,9 +1,9 @@
 .container {
     display: flex;
     flex-direction: column;
-    width: 25rem;
+    width: 40rem;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 50px;
     background: burlywood;
     padding-bottom: 30px;
 }

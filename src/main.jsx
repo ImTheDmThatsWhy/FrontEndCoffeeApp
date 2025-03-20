@@ -4,11 +4,13 @@ import "./index.css";
 import App from "./App.jsx";
 import LoginRegister from "./loginRegister/loginRegister.jsx";
 import Review from "./review/review.jsx";
+import Loginuser from "./loginRegister/loginpage";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         {/* <App /> */}
-        <LoginRegister />
+        {/* <LoginRegister /> */}
+        <Loginuser />
         {/* <Review /> */}
     </StrictMode>
 );
