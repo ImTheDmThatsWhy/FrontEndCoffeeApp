@@ -6,7 +6,6 @@ import mail_icon from "../assets/mail-02.jpg";
 import password_icon from "../assets/password.jpg";
 import person_icon from "../assets/person.jpg";
 import coffee from "../assets/coffeebean.png";
-import { SiEclipseche } from "react-icons/si";
 const LoginRegister = () => {
     const [newUser, setNewUser] = useState({
         username: "",
