@@ -9,14 +9,14 @@ const Home = () => {
         <div className="hero">
             <div>
                 <div className="hero-header">
-                    <h1>Website Heading</h1>
+                    <h1>Buzz My Day App</h1>
                 </div>
                 <div className="hero-blurb">
-                    <h4>Lorem KLOERGNIMgfimwmfiwamfowamf</h4>
+                    <h4>Bringing a Buzz to your day!</h4>
                 </div>
                 <div className="hero-btns">
-                    <button><h4>Lorem </h4></button>
-                    <button><h4>Lorem </h4></button>
+                    <button><h4>See More...</h4></button>
+                    <button><h4>Coffees</h4></button>
                 </div>
             </div>
         </div>

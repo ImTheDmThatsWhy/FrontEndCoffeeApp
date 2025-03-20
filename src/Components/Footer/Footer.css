@@ -1,10 +1,12 @@
 footer{
-    background-color: grey;
+    
+    background-color: #ddd;
     height: 10vw;
     display: flex;
     flex-direction: column;
 }
 .footer-navbar{
+
     margin-top: auto;
     width: 100%;
     display: flex;
@@ -28,3 +30,6 @@ img{
     height: 50px;
 }
 
+h4{
+    font-weight: 100;
+}

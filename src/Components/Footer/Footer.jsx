@@ -10,10 +10,10 @@ const Footer = () => {
                 <h4 className="footer-header">Copyright SiteName 2025</h4>
             </div>
             <div className="footer-navbar">
-                <a><img src="/logotemplate.svg" alt="Logo" /></a>
-                <a><img src="/logotemplate.svg" alt="Logo" /></a>
-                <a><img src="/logotemplate.svg" alt="Logo" /></a>
-                <a><img src="/logotemplate.svg" alt="Logo" /></a>
+                <a><img src="/icons8-discord-50.png" alt="Logo" /></a>
+                <a><img src="/icons8-instagram-50.png" alt="Logo" /></a>
+                <a><img src="/icons8-twitter-50.png" alt="Logo" /></a>
+                <a><img src="/icons8-youtube-50.png" alt="Logo" /></a>
             </div>
 
         </footer>
