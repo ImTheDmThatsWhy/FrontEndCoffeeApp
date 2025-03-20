@@ -6,21 +6,38 @@ import mail_icon from "../assets/mail-02.jpg";
 import password_icon from "../assets/password.jpg";
 import person_icon from "../assets/person.jpg";
 import coffee from "../assets/coffeebean.png";
+
 const LoginRegister = () => {
-    const [newUser, setNewUser] = useState({
+    const [isRegisterPage, setIsRegisterPage] = useState(false);
+    const onClick = () => setIsRegisterPage(!isRegisterPage);
+    const [user, setLoginUser] = useState({
         username: "",
         email: "",
         password: "",
     });
 
     const createUser = async () => {
-        try {
-            await api.post("/user/register", newUser);
-            setNewUser({ username: "", email: "", password: "" });
-        } catch (error) {
-            if (error.response?.data)
-                console.error("Error creating user:", error.response?.data);
-            console.error("Error creating user:", error);
+        if (isRegisterPage) {
+            try {
+                await api.post("/user/register", user);
+                setLoginUser({ username: "", email: "", password: "" });
+            } catch (error) {
+                if (error.response?.data)
+                    console.error("Error creating user:", error.response?.data);
+                console.error("Error creating user:", error);
+            }
+        } else {
+            try {
+                await api.post("/user/login", user);
+                setLoginUser({ email: "", password: "" });
+            } catch (error) {
+                if (error.response?.data)
+                    console.error(
+                        "Error logging in user:",
+                        error.response?.data
+                    );
+                console.error("Error logging user:", error);
+            }
         }
     };
 
@@ -30,34 +47,33 @@ const LoginRegister = () => {
             <div className="container">
                 <img className="coffee" src={coffee} alt="coffee"></img>
                 <div className="header">
-                    <div className="register">Register</div>
+                    <div className="register">
+                        {isRegisterPage ? "Register" : "Login"}
+                    </div>
                     <div className="underline"></div>
-                    {/* <div className="coffee-background">
-                        <img
-                            src={coffee_bean}
-                            alt="image of coffebean background"
-                        ></img>
-                    </div> */}
                 </div>
                 <div className="inputs">
-                    <div className="input">
-                        <img
-                            className="icon"
-                            src={person_icon}
-                            alt="image of person icon"
-                        ></img>
-                        <input
-                            type="text"
-                            placeholder="username"
-                            value={newUser.username}
-                            onChange={(e) =>
-                                setNewUser({
-                                    ...newUser,
-                                    username: e.target.value,
-                                })
-                            }
-                        />
-                    </div>
+                    {isRegisterPage ? (
+                        <div className="input">
+                            <img
+                                className="icon"
+                                src={person_icon}
+                                alt="image of person icon"
+                            ></img>
+
+                            <input
+                                type="text"
+                                placeholder="username"
+                                value={user.username}
+                                onChange={(e) =>
+                                    setLoginUser({
+                                        ...user,
+                                        username: e.target.value,
+                                    })
+                                }
+                            />
+                        </div>
+                    ) : null}
                     <div className="input">
                         <img
                             className="icon"
@@ -67,10 +83,10 @@ const LoginRegister = () => {
                         <input
                             type="email"
                             placeholder="email"
-                            value={newUser.email}
+                            value={user.email}
                             onChange={(e) =>
-                                setNewUser({
-                                    ...newUser,
+                                setLoginUser({
+                                    ...user,
                                     email: e.target.value,
                                 })
                             }
@@ -85,10 +101,10 @@ const LoginRegister = () => {
                         <input
                             type="password"
                             placeholder="password"
-                            value={newUser.password}
+                            value={user.password}
                             onChange={(e) =>
-                                setNewUser({
-                                    ...newUser,
+                                setLoginUser({
+                                    ...user,
                                     password: e.target.value,
                                 })
                             }
@@ -98,11 +114,13 @@ const LoginRegister = () => {
                 <div className="Submit_container">
                     <div className="submit">
                         <button className="button" onClick={createUser}>
-                            Register
+                            Submit
                         </button>
                     </div>
                     <div className="submit">
-                        <button className="button">Login</button>
+                        <button className="button" onClick={onClick}>
+                            {isRegisterPage ? "Login" : "Register"}
+                        </button>
                     </div>
                 </div>
             </div>
