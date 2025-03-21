@@ -1,0 +1,10 @@
+.accountcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    margin: auto;
+    background-image: url("../assets/coffeebackground.jpeg");
+    background-position: center;
+    background-size: cover;
+    margin-top: 100px;
+}

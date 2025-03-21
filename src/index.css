@@ -1,7 +1,6 @@
 body {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", Times, serif, Arial, Helvetica,
-        sans-serif;
+    background-image: url("../assets/back.jpeg") !important;
+    background-position: center;
+    background-size: cover;
     height: 100vh;
-    background: wheat;
 }

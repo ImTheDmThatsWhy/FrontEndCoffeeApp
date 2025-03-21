@@ -82,38 +82,42 @@ img.icon {
 
 @media screen and (min-width: 768px) {
     .container {
-        width: 120rem;
-        margin-top: 500px;
+        width: 40rem;
+        margin-top: 100px;
     }
+    img.coffee {
+        height: 5rem;
+    }
+
     .register {
-        font-size: 10rem;
+        font-size: 3rem;
     }
     .inputs {
         gap: 3rem;
     }
     .input {
-        width: 70rem;
-        height: 10rem;
+        width: 35rem;
+        height: 4rem;
         border-radius: 0.5rem;
     }
     img.icon {
-        width: 110px;
-        height: 110px;
+        width: 100px;
+        height: 60px;
     }
     .underline {
-        width: 40rem;
+        width: 20rem;
         background: black;
-        height: 0.8rem;
+        height: 0.3rem;
     }
     .input input {
-        font-size: 50px;
+        font-size: 30px;
         width: 1000px;
     }
     .button {
-        font-size: 5rem;
-        border-radius: 20px;
+        font-size: 2rem;
+        border-radius: 8px;
     }
     .Submit_container {
-        margin-top: 150px;
+        margin-top: 40px;
     }
 }
