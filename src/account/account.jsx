@@ -13,10 +13,14 @@ const AccountCreate = () => {
         description: "",
         photo: placeholder,
     });
-
     const createAccount = async () => {
         try {
-            await api.post("/account", newAccount);
+            const config = {
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                },
+            };
+            await api.post("/account", newAccount, config);
             setNewAccount({
                 displayname: "",
                 email: "",
