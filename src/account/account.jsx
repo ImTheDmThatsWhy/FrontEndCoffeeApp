@@ -1,14 +1,26 @@
 import React from "react";
 import "./account.css";
 import placeholder from "../assets/placeholder.jpeg";
-// const AccountPage = () => {
-//         const [isCreateAccount, setIsCreateAccount]=
-//         useState(false)
-//         const on
-//     }
-// };
+const AccountCreate = () => {
+    const [isCreateAccount, setIsCreateAccount] = useState(false);
 
-const AccountPage = () => {
+    const AccountPage = async () => {
+        try {
+            await api.post("/account/post", account);
+            setNewAccount({
+                displayname: "",
+                email: "",
+                name: "",
+                description: "",
+                photo: "",
+            });
+        } catch (error) {
+            if (error.response?.data)
+                console.error("Error creating account:", error.response?.data);
+            console.error("Error creating account:", error);
+        }
+    };
+
     return (
         <main>
             <div className="accountcontainer">
@@ -28,6 +40,12 @@ const AccountPage = () => {
                             className="description"
                             type="text"
                             placeholder="description"
+                            onChange={(e) =>
+                                setNewAccount({
+                                    ...account,
+                                    description: e.target.value,
+                                })
+                            }
                         ></textarea>
                     </div>
                 </div>
@@ -36,19 +54,47 @@ const AccountPage = () => {
                         <label id="label" for="displayname">
                             displayname:
                         </label>
-                        <input id="displayname" className="input"></input>
+                        <input
+                            id="displayname"
+                            className="input"
+                            value={account.displayname}
+                            onChange={(e) =>
+                                setNewAccount({
+                                    ...account,
+                                    displayname: e.target.value,
+                                })
+                            }
+                        ></input>
                     </div>
                     <div className="form">
                         <label id="label" for="name">
                             name:
                         </label>
-                        <input id="name" className="input"></input>
+                        <input
+                            id="name"
+                            className="input"
+                            onChange={(e) =>
+                                setNewAccount({
+                                    ...account,
+                                    name: e.target.value,
+                                })
+                            }
+                        ></input>
                     </div>
                     <div className="form">
                         <label id="label" for="email">
                             email:
                         </label>
-                        <input id="email" className="input"></input>
+                        <input
+                            id="email"
+                            className="input"
+                            onChange={(e) =>
+                                setNewAccount({
+                                    ...account,
+                                    email: e.target.value,
+                                })
+                            }
+                        ></input>
                     </div>
                     <div className="Submit_container">
                         <div className="submit">
