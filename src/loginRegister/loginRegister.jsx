@@ -10,6 +10,7 @@ import coffee from "../assets/coffeebean.png";
 const LoginRegister = () => {
     const [isRegisterPage, setIsRegisterPage] = useState(false);
     const onClick = () => setIsRegisterPage(!isRegisterPage);
+    const [Success, setSuccess] = useState("");
     const [user, setLoginUser] = useState({
         username: "",
         email: "",
@@ -19,7 +20,10 @@ const LoginRegister = () => {
     const createUser = async () => {
         if (isRegisterPage) {
             try {
-                await api.post("/user/register", user);
+                await api.post("/user/register", user).then((response) => {
+                    localStorage.setItem("token", response.data.token);
+                });
+                setSuccess("successfully submitted");
                 setLoginUser({ username: "", email: "", password: "" });
             } catch (error) {
                 if (error.response?.data)
@@ -28,7 +32,9 @@ const LoginRegister = () => {
             }
         } else {
             try {
-                await api.post("/user/login", user);
+                await api.post("/user/login", user).then((response) => {
+                    localStorage.setItem("token", response.data.token);
+                });
                 setLoginUser({ email: "", password: "" });
             } catch (error) {
                 if (error.response?.data)
@@ -122,6 +128,7 @@ const LoginRegister = () => {
                             {isRegisterPage ? "Login" : "Register"}
                         </button>
                     </div>
+                    <p className="success">{Success}</p>
                 </div>
             </div>
         </main>

@@ -7,9 +7,9 @@ import Review from "./review/review.jsx";
 import AccountCreate from "./account/account.jsx";
 createRoot(document.getElementById("root")).render(
     <StrictMode>
-        {/* <App /> */}
+        <App />
         {/* <LoginRegister /> */}
         {/* <Review /> */}
-        <AccountCreate />
+        {/* <AccountCreate /> */}
     </StrictMode>
 );
