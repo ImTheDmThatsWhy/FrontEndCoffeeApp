@@ -5,6 +5,7 @@ import placeholder from "../assets/placeholder.jpeg";
 
 const AccountCreate = () => {
     const [isCreateAccount, setIsCreateAccount] = useState(false);
+    const [Success, setSuccess] = useState("");
     const [newAccount, setNewAccount] = useState({
         displayname: "",
         email: "",
@@ -23,6 +24,7 @@ const AccountCreate = () => {
                 description: "",
                 photo: placeholder,
             });
+            setSuccess("successfully submitted");
         } catch (error) {
             if (error?.response?.data)
                 console.error("Error creating account:", error.response?.data);
@@ -111,6 +113,7 @@ const AccountCreate = () => {
                         <div className="submit">
                             <button className="button">Edit</button>
                         </div>
+                        <p className="success">{Success}</p>
                     </div>
                 </div>
             </div>
