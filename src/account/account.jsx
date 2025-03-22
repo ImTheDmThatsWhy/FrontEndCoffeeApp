@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import api from "./../api.jsx";
 import "./account.css";
-import placeholder from "../assets/placeholder.jpeg";
 
 const AccountCreate = () => {
     const [isCreateAccount, setIsCreateAccount] = useState(false);
@@ -11,7 +10,6 @@ const AccountCreate = () => {
         email: "",
         name: "",
         description: "",
-        photo: placeholder,
     });
     const createAccount = async () => {
         try {
@@ -45,11 +43,6 @@ const AccountCreate = () => {
                         Welcome new coffee enthusiast! Please enter your details
                         below.
                     </p>
-                    <img
-                        className="profilepic"
-                        src={newAccount.photo}
-                        alt="profile"
-                    ></img>
                     <div>
                         <textarea
                             className="description"
