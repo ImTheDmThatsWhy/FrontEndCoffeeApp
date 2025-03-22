@@ -20,30 +20,57 @@ const AccountCreate = () => {
         };
     };
 
-    useEffect(() => {
+    const [loginData, setLoginData] = useState(null);
+
+    const fetchLogin = async () => {
         const user_id = localStorage.getItem("user_id");
         if (user_id) {
-            console.log(user_id);
-            api.get("/user/" + user_id, getAuthorizationToken())
-                .then((response) => setNewAccount(response.data))
+            await api
+                .get("/user/" + user_id, getAuthorizationToken())
+                .then((response) => {
+                    setLoginData({ ...response.data });
+                })
                 .catch((err) => console.log(err));
         }
+    };
+
+    useEffect(() => {
+        fetchLogin();
     }, []);
+
+    useEffect(() => {
+        if (loginData) {
+            api.get(
+                "/account/" + loginData.displayname,
+                getAuthorizationToken()
+            )
+                .then((response) => {
+                    setNewAccount({ ...newAccount, ...response.data });
+                })
+                .catch((err) => {
+                    setNewAccount({ ...newAccount, ...loginData });
+                    console.log(err);
+                });
+        }
+    }, [loginData]);
+
     const createAccount = async () => {
         try {
-            await api.post("/account", newAccount, getAuthorizationToken());
-            setNewAccount({
-                displayname: "",
-                email: "",
-                name: "",
-                description: "",
-            });
-            setSuccess("successfully submitted");
-        } catch (error) {
-            if (error?.response?.data)
-                console.error("Error creating account:", error.response?.data);
-            console.error("Error creating account:", error);
-        }
+            await api
+                .post("/account", newAccount, getAuthorizationToken())
+                .then(() => {
+                    setSuccess("successfully submitted");
+                    console.log("account successfully submitted");
+                })
+                .catch((err) => {
+                    if (err?.response?.data)
+                        console.error(
+                            "Error creating account:",
+                            err.response?.data
+                        );
+                    console.error("Error creating account:", err);
+                });
+        } catch (error) {}
     };
 
     return (
