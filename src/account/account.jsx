@@ -1,16 +1,43 @@
 import React, { useState, useEffect } from "react";
 import api from "./../api.jsx";
 import "./account.css";
+import { useLocation } from "react-router";
 
 const AccountCreate = () => {
-    const [isCreateAccount, setIsCreateAccount] = useState(false);
+    const [isCreateAccount, setIsCreateAccount] = useState(true);
     const [Success, setSuccess] = useState("");
-    const [newAccount, setNewAccount] = useState({
-        displayname: localStorage.getItem("displayname"),
+    const [isSubmitted, setSubmitted] = useState(false);
+    const [loginData, setLoginData] = useState(null);
+    const handleSubmit = () => {
+        setSubmitted(true);
+    };
+    const [Account, setAccount] = useState({
+        displayname: "",
         email: "",
         name: "",
         description: "",
     });
+
+    const deleteAccount = async () => {
+        await api
+            .delete(
+                "/account/" + loginData.displayname,
+                getAuthorizationToken()
+            )
+            .then(
+                setAccount({
+                    displayname: "",
+                    email: "",
+                    name: "",
+                    description: "",
+                })
+            );
+    };
+
+    const updateAccount = () => {
+        setSubmitted(false);
+        setIsCreateAccount(false);
+    };
 
     const getAuthorizationToken = () => {
         return {
@@ -19,8 +46,6 @@ const AccountCreate = () => {
             },
         };
     };
-
-    const [loginData, setLoginData] = useState(null);
 
     const fetchLogin = async () => {
         const user_id = localStorage.getItem("user_id");
@@ -45,10 +70,12 @@ const AccountCreate = () => {
                 getAuthorizationToken()
             )
                 .then((response) => {
-                    setNewAccount({ ...newAccount, ...response.data });
+                    setAccount({ ...Account, ...response.data });
+                    setIsCreateAccount(false);
+                    setSubmitted(true);
                 })
                 .catch((err) => {
-                    setNewAccount({ ...newAccount, ...loginData });
+                    setAccount({ ...Account, ...loginData });
                     console.log(err);
                 });
         }
@@ -56,20 +83,43 @@ const AccountCreate = () => {
 
     const createAccount = async () => {
         try {
-            await api
-                .post("/account", newAccount, getAuthorizationToken())
-                .then(() => {
-                    setSuccess("successfully submitted");
-                    console.log("account successfully submitted");
-                })
-                .catch((err) => {
-                    if (err?.response?.data)
-                        console.error(
-                            "Error creating account:",
-                            err.response?.data
-                        );
-                    console.error("Error creating account:", err);
-                });
+            if (isCreateAccount) {
+                await api
+                    .post("/account", Account, getAuthorizationToken())
+                    .then(() => {
+                        setSuccess("successfully submitted");
+                        console.log("account successfully submitted");
+                        handleSubmit();
+                    })
+                    .catch((err) => {
+                        if (err?.response?.data)
+                            console.error(
+                                "Error creating account:",
+                                err.response?.data
+                            );
+                        console.error("Error creating account:", err);
+                    });
+            } else {
+                await api
+                    .patch(
+                        "/account/" + loginData.displayname,
+                        Account,
+                        getAuthorizationToken()
+                    )
+                    .then(() => {
+                        setSuccess("successfully submitted");
+                        console.log("account successfully submitted");
+                        handleSubmit();
+                    })
+                    .catch((err) => {
+                        if (err?.response?.data)
+                            console.error(
+                                "Error updating account:",
+                                err.response?.data
+                            );
+                        console.error("Error updating account:", err);
+                    });
+            }
         } catch (error) {}
     };
 
@@ -85,12 +135,13 @@ const AccountCreate = () => {
                     <div>
                         <textarea
                             className="description"
+                            disabled={isSubmitted}
                             type="text"
                             placeholder="description"
-                            value={newAccount.description}
+                            value={Account.description}
                             onChange={(e) =>
-                                setNewAccount({
-                                    ...newAccount,
+                                setAccount({
+                                    ...Account,
                                     description: e.target.value,
                                 })
                             }
@@ -103,10 +154,11 @@ const AccountCreate = () => {
                         <input
                             id="displayname"
                             className="input"
-                            value={newAccount.displayname}
+                            disabled={isSubmitted}
+                            value={Account.displayname}
                             onChange={(e) =>
-                                setNewAccount({
-                                    ...newAccount,
+                                setAccount({
+                                    ...Account,
                                     displayname: e.target.value,
                                 })
                             }
@@ -117,10 +169,11 @@ const AccountCreate = () => {
                         <input
                             id="name"
                             className="input"
-                            value={newAccount.name}
+                            disabled={isSubmitted}
+                            value={Account.name}
                             onChange={(e) =>
-                                setNewAccount({
-                                    ...newAccount,
+                                setAccount({
+                                    ...Account,
                                     name: e.target.value,
                                 })
                             }
@@ -131,23 +184,39 @@ const AccountCreate = () => {
                         <input
                             id="email"
                             className="input"
-                            value={newAccount.email}
+                            disabled={isSubmitted}
+                            value={Account.email}
                             onChange={(e) =>
-                                setNewAccount({
-                                    ...newAccount,
+                                setAccount({
+                                    ...Account,
                                     email: e.target.value,
                                 })
                             }
                         ></input>
                     </div>
                     <div className="Submit_container">
+                        {!isSubmitted ? (
+                            <div className="submit">
+                                <button
+                                    className="button"
+                                    onClick={createAccount}
+                                >
+                                    Submit
+                                </button>
+                            </div>
+                        ) : null}
                         <div className="submit">
-                            <button className="button" onClick={createAccount}>
-                                Submit
+                            <button className="button" onClick={updateAccount}>
+                                Edit
                             </button>
-                        </div>
-                        <div className="submit">
-                            <button className="button">Edit</button>
+                            {!isSubmitted && !isCreateAccount ? (
+                                <button
+                                    className="button"
+                                    onClick={deleteAccount}
+                                >
+                                    Delete
+                                </button>
+                            ) : null}
                         </div>
                         <p className="success">{Success}</p>
                     </div>
