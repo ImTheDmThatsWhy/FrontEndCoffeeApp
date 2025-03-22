@@ -6,13 +6,15 @@ import mail_icon from "../assets/mail-02.jpg";
 import password_icon from "../assets/password.jpg";
 import person_icon from "../assets/person.jpg";
 import coffee from "../assets/coffeebean.png";
+import { useNavigate } from "react-router-dom";
 
 const LoginRegister = () => {
+    const navigate = useNavigate();
     const [isRegisterPage, setIsRegisterPage] = useState(false);
     const onClick = () => setIsRegisterPage(!isRegisterPage);
     const [Success, setSuccess] = useState("");
     const [user, setLoginUser] = useState({
-        username: "",
+        displayname: "",
         email: "",
         password: "",
     });
@@ -22,9 +24,11 @@ const LoginRegister = () => {
             try {
                 await api.post("/user/register", user).then((response) => {
                     localStorage.setItem("token", response.data.token);
+                    localStorage.setItem("user_id", response.data.user_id);
+                    navigate("/account");
                 });
                 setSuccess("successfully submitted");
-                setLoginUser({ username: "", email: "", password: "" });
+                setLoginUser({ displayname: "", email: "", password: "" });
             } catch (error) {
                 if (error.response?.data)
                     console.error("Error creating user:", error.response?.data);
@@ -34,6 +38,7 @@ const LoginRegister = () => {
             try {
                 await api.post("/user/login", user).then((response) => {
                     localStorage.setItem("token", response.data.token);
+                    localStorage.setItem("user_id", response.data.user_id);
                 });
                 setLoginUser({ email: "", password: "" });
             } catch (error) {
@@ -69,12 +74,12 @@ const LoginRegister = () => {
 
                             <input
                                 type="text"
-                                placeholder="username"
-                                value={user.username}
+                                placeholder="displayname"
+                                value={user.displayname}
                                 onChange={(e) =>
                                     setLoginUser({
                                         ...user,
-                                        username: e.target.value,
+                                        displayname: e.target.value,
                                     })
                                 }
                             />

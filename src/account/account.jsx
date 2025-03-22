@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import api from "./../api.jsx";
 import "./account.css";
 
@@ -6,25 +6,37 @@ const AccountCreate = () => {
     const [isCreateAccount, setIsCreateAccount] = useState(false);
     const [Success, setSuccess] = useState("");
     const [newAccount, setNewAccount] = useState({
-        displayname: "",
+        displayname: localStorage.getItem("displayname"),
         email: "",
         name: "",
         description: "",
     });
+
+    const getAuthorizationToken = () => {
+        return {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+        };
+    };
+
+    useEffect(() => {
+        const user_id = localStorage.getItem("user_id");
+        if (user_id) {
+            console.log(user_id);
+            api.get("/user/" + user_id, getAuthorizationToken())
+                .then((response) => setNewAccount(response.data))
+                .catch((err) => console.log(err));
+        }
+    }, []);
     const createAccount = async () => {
         try {
-            const config = {
-                headers: {
-                    Authorization: "Bearer " + localStorage.getItem("token"),
-                },
-            };
-            await api.post("/account", newAccount, config);
+            await api.post("/account", newAccount, getAuthorizationToken());
             setNewAccount({
                 displayname: "",
                 email: "",
                 name: "",
                 description: "",
-                photo: placeholder,
             });
             setSuccess("successfully submitted");
         } catch (error) {
