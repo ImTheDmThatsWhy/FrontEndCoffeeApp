@@ -4,6 +4,83 @@ This app allows users to find their favourite instant coffee, read and write rev
 
 # React + Vite
 
+Source(1): Wikipedia. (2024). Vite (software). [online] Available at: https://en.wikipedia.org/wiki/Vite_(software).
+
+Source (2): npm. (2025). vite. [online] Available at: https://www.npmjs.com/package/vite [Accessed 23 Mar. 2025].
+
+Vite is a local development server that was written by Evan You, it will be used in the React side of this application to help build and develop the server. Vite also provides a built in server side rendering that will be utilised in this application. Vite will be used as its Hot Module Replacement system reduces wait times during production, and its production build time is faster compared to traditional build tools such as WebPaxk and Parcel (Source 1).
+
+Dependencies:
+- esbuild
+- postcss
+- rollup
+
+To Install: Follow the following instructions to view Vite set up and dev dependencies: https://vite.dev/guide/
+
+Dev Dependencies:
+
+- @ampproject/remapping
+- @babel/parser
+- @jridgewell/trace-mapping
+- @polka/compression
+- @rollup/plugin-alias
+- @rollup/plugin-commonjs
+- @rollup/plugin-dynamic-import-vars
+- @rollup/plugin-json
+- @rollup/plugin-node-resolve
+- @rollup/pluginutils
+- @types/escape-html
+- @types/pnpapi
+- artichokie
+- cac
+- chokidar
+- connect
+- convert-source-map
+- cors
+- cross-spawn
+- debug
+- dotenv
+- dotenv-expand
+- es-module-lexer
+- escape-html
+- estree-walker
+- etag
+- http-proxy
+- launch-editor-middleware
+- lightningcss
+- magic-string
+- mlly
+- mrmime
+- nanoid
+- open
+- parse5
+- pathe
+- periscopic
+- picocolors
+- picomatch
+- postcss-import
+- postcss-load-config
+- postcss-modules
+- resolve.exports
+- rollup-plugin-dts
+- rollup-plugin-esbuild
+- rollup-plugin-license
+- sass
+- sass-embedded
+- sirv
+- source-map-support
+- strip-literal
+- terser
+- tinyglobby
+- tsconfck
+- tslib
+- ufo
+- ws
+
+
+
+Licensing and Ethics: Vite is under the Mit license which can be found earlier in the Read Me. As this is an open license there is no ethical concerns about the use of Vite in this application as I have acknowledged that it is under the MIT license, in accordance with the license requirements Source 1.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
@@ -124,7 +201,7 @@ To install react-router follow the instructions in the following link: https://w
 
 Licensing and Ethics: react-router is under the Mit license which can be found earlier in the Read Me. As this is an open license there is no ethical concerns about the use of react-router in this application as I have acknowledged that it is under the MIT license, in accordance with the license requirements.
 
-### VS code built in css
+### VS code built in css and HTML
 
 Css will be used to add styling to the application and is already built into VS code source code is under the MIT licence which has already been posted while VS code is under the following license
 
@@ -170,4 +247,189 @@ This limitation applies to (a) anything related to the software, services, conte
 It also applies even if Microsoft knew or should have known about the possibility of the damages. The above limitation or exclusion may not apply to you because your state or country may not allow the exclusion or limitation of incidental, consequential or other damages.
 ```
 
-As the license allows the development of applications and for third party software there is no ethical concerns in regards to using VS code and other imported software providing the imported softwares licensing conditions are met.
+As the license allows the development of applications and for third party software there is no ethical concerns in regards to using VS code software including HTML (used to build front end layout) and other imported software providing the imported softwares licensing conditions are met.
+
+### react-router-dom
+Source:
+npm. (n.d.). react-router-dom. [online] Available at: https://www.npmjs.com/package/react-router-dom.
+
+Used to smooth upgrade path from react-router.
+
+To install follow instructions at: https://www.npmjs.com/package/react-router-dom
+
+Dependency:
+
+- react-router
+
+Dev Dependency:
+
+- react
+- react-dom
+- -tsup
+- typescript
+- wireit
+
+
+Licensing and Ethics: react-router-dom is under the Mit license which can be found earlier in the Read Me. As this is an open license there is no ethical concerns about the use of react-router-dom in this application as I have acknowledged that it is under the MIT license, in accordance with the license requirements.
+
+### Axios
+Source: npm. (n.d.). axios. [online] Available at: https://www.npmjs.com/package/axios.
+
+Axios is a library that is being used in the front end to make requests to the API server.
+
+To install Axios follow the instructions in https://www.npmjs.com/package/axios.
+
+Licensing and Ethics: axios is under the Mit license which can be found earlier in the Read Me. As this is an open license there is no ethical concerns about the use of axios in this application as I have acknowledged that it is under the MIT license, in accordance with the license requirements.
+
+Dependencies:
+
+- follow-redirects
+- form-data
+- proxy-from-env
+
+Dev Dependencies:
+
+- @babel/core
+- @babel/preset-env
+- @commitlint/cli
+- @commitlint/config-conventional
+- @release-it/conventional-changelog
+- @rollup/plugin-alias
+- @rollup/plugin-babel
+- @rollup/plugin-commonjs
+- @rollup/plugin-json
+- @rollup/plugin-multi-entry
+- @rollup/plugin-node-resolve
+- abortcontroller-polyfill
+- auto-changelog
+- body-parser
+- chalk
+- coveralls
+- cross-env
+- dev-null
+- dtslint
+- es6-promise
+- eslint
+- express
+- formdata-node
+- formidable
+- fs-extra
+- get-stream
+- gulp
+- gzip-size
+- handlebars
+- husky
+- istanbul-instrumenter-loader
+- jasmine-core
+- karma
+- karma-chrome-launcher
+- karma-firefox-launcher
+- karma-jasmine
+- karma-jasmine-ajax
+- karma-rollup-preprocessor
+- karma-safari-launcher
+- karma-sauce-launcher
+- karma-sinon
+- karma-sourcemap-loader
+- memoizee
+- minimist
+- mocha
+- multer
+- pretty-bytes
+- release-it
+- rollup
+- rollup-plugin-auto-external
+- rollup-plugin-bundle-size
+- rollup-plugin-terser
+- sinon
+- stream-throttle
+- string-replace-async
+- terser-webpack-plugin
+- typescript
+  
+  ### @fontsource/inter
+
+  source: npm. (2025). @fontsource/inter. [online] Available at: https://www.npmjs.com/package/@fontsource/inter [Accessed 23 Mar. 2025].
+
+  This contains CSS and web font files that allows self hosting of the Inter font.
+
+  To install use the instructions in the following link:https://www.npmjs.com/package/@fontsource/inter.
+
+  Zero dependencies according to the above source.
+
+  Licensing and Ethics: According to the information in https://opensource.org/license/ofl-1-1 @fontersource/inter is under the open font license which allows the use of all fonts freely as long as they are not sold. As the fonts will not be sold there is no ethical concerns in using this software.
+
+  ```
+  SIL Open Font License Official Text
+  Download the current SIL Open Font License Version 1.1 in either plaintext (OFL.txt) or markdown (OFL.md) format.
+ 
+
+For the context and rationale of the license as well as its recognized compliance with the Free Software Definition, the Debian Free Software Guidelines and the Open Source Definition, see Why use the OFL?
+ 
+Only this English-language original should be considered official and authoritative, see Translation policy.
+
+Text of OFL version 1.1 with example header containing copyright and RFN statements
+ 
+
+Copyright (c) <dates>, <Copyright Holder> (<URL|email>),
+with Reserved Font Name <Reserved Font Name>.
+
+Copyright (c) <dates>, <additional Copyright Holder> (<URL|email>),
+with Reserved Font Name <additional Reserved Font Name>.
+
+Copyright (c) <dates>, <additional Copyright Holder> (<URL|email>).
+ 
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://openfontlicense.org
+ 
+
+-———————————————————————
+
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-———————————————————————
+
+ 
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide development of collaborative font projects, to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework in which fonts may be shared and improved in partnership with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and redistributed freely as long as they are not sold by themselves. The fonts, including any derivative works, can be bundled, embedded, redistributed and/or sold with any software provided that any reserved names are not used by derivative works. The fonts and derivatives, however, cannot be released under any other type of license. The requirement for fonts to remain under this license does not apply to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+“Font Software” refers to the set of files released by the Copyright Holder(s) under this license and clearly marked as such. This may include source files, build scripts and documentation.
+
+“Reserved Font Name” refers to any names specified as such after the copyright statement(s).
+
+“Original Version” refers to the collection of Font Software components as distributed by the Copyright Holder(s).
+
+“Modified Version” refers to any derivative made by adding to, deleting, or substituting – in part or in whole – any of the components of the Original Version, by changing formats or by porting the Font Software to a new environment.
+
+“Author” refers to any designer, engineer, programmer, technical writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the following conditions:
+
+Neither the Font Software nor any of its individual components, in Original or Modified Versions, may be sold by itself.
+
+Original or Modified Versions of the Font Software may be bundled, redistributed and/or sold with any software, provided that each copy contains the above copyright notice and this license. These can be included either as stand-alone text files, human-readable headers or in the appropriate machine-readable metadata fields within text or binary files as long as those fields can be easily viewed by the user.
+
+No Modified Version of the Font Software may use the Reserved Font Name(s) unless explicit written permission is granted by the corresponding Copyright Holder. This restriction only applies to the primary font name as presented to the users.
+
+The name(s) of the Copyright Holder(s) or the Author(s) of the Font Software shall not be used to promote, endorse or advertise any Modified Version, except to acknowledge the contribution(s) of the Copyright Holder(s) and the Author(s) or with their explicit written permission.
+
+The Font Software, modified or unmodified, in part or in whole, must be distributed entirely under this license, and must not be distributed under any other license. The requirement for fonts to remain under this license does not apply to any document created using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.
+
+Last updated on 24 January 2024
+
+The SIL Open Font License is maintained by Victor Gaultney and Nicolas Spalinger. Contact us.
+This site is Copyright © 2005–2024  SIL International (sil.org)  |  Privacy policy  |  Colophon  |  Site map
+```
+
